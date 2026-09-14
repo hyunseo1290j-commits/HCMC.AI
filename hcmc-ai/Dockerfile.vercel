@@ -1,0 +1,15 @@
+FROM node:24-alpine
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=80
+
+# Copy only runtime files. Never include local accounts, environment files or Git history.
+COPY package.json server.mjs pricing.mjs model-catalog.json ./
+COPY index.html app.js styles.css polish.css ./
+COPY *.png ./
+COPY assets/ ./assets/
+
+EXPOSE 80
+CMD ["node", "server.mjs"]

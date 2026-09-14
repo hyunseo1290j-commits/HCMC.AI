@@ -1,0 +1,5 @@
+@echo off
+title hcmc.ai local studio
+cd /d "%~dp0"
+start "" http://127.0.0.1:4173/
+npm start
